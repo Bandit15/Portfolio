@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bandit Mienmany | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio of Bandit Mienmany: Geospatial Analysis, GIS, Data Visualization, Remote Sensing.">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #5180c2;
+      --white: #fff;
+      --accent: #5dbb8c;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f4f5fa;
+      font-family: 'Montserrat', Arial, sans-serif;
+      color: #233;
+    }
+    .hero {
+      background: var(--primary);
+      min-height: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3.5rem 1rem 3.5rem 1rem;
+      box-sizing: border-box;
+    }
+    .hero-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 740px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .profile-photo {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 32px;
+      border: 7px solid var(--white);
+      box-shadow: 0 6px 38px 0 rgba(60,75,120,.18);
+      background: #eee;
+      margin-bottom: 1.3rem;
+      margin-top: 0.4rem;
+      transition: box-shadow 0.22s, border-color 0.22s;
+    }
+    .profile-photo:hover {
+      box-shadow: 0 20px 60px 0 rgba(60,75,120,.22);
+      border-color: var(--accent);
+    }
+    .hero-title {
+      font-size: 2.7rem;
+      margin: 0 0 1.2rem 0;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--white);
+    }
+    .hero-intro {
+      font-size: 1.35rem;
+      margin: 0 0 1.6rem 0;
+      font-weight: 400;
+      color: var(--white);
+      max-width: 600px;
+      line-height: 1.55;
+      letter-spacing: 0.1px;
+    }
+
+    .section-title {
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 1px;
+      margin: 2.2rem 0 1.2rem 0;
+      text-align: center;
+    }
+    .projects-section {
+      padding: 2.2rem 0 2.7rem 0;
+      background: #f4f5fa;
+      min-height: 60vh;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2.3rem 2.2rem;
+      justify-items: center;
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 1.5rem 2rem 0 2rem;
+    }
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: var(--white);
+      border-radius: 1.5rem;
+      box-shadow: 0 4px 24px rgba(50,70,130,0.07);
+      padding: 2.1rem 1.2rem 1.5rem 1.2rem;
+      text-align: center;
+      transition: box-shadow 0.23s cubic-bezier(.4,2,.38,1), transform 0.23s cubic-bezier(.4,2,.38,1), border-color 0.21s;
+      position: relative;
+      min-height: 265px;
+      width: 100%;
+      max-width: 295px;
+      border: 2.5px solid transparent;
+      cursor: pointer;
+    }
+    .project-card:hover {
+      transform: translateY(-8px) scale(1.027);
+      box-shadow: 0 14px 44px 0 rgba(60,75,120,.16);
+      border-color: var(--accent);
+    }
+    .project-image {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1.09rem;
+      box-shadow: 0 2px 14px 0 rgba(40,90,130,.10);
+      border: 4px solid #f2f2f2;
+      background: #e8e8e8;
+      transition: box-shadow 0.23s, border-color 0.23s;
+    }
+    .project-card:hover .project-image {
+      box-shadow: 0 8px 38px 0 rgba(50,130,100,.13);
+      border-color: var(--accent);
+    }
+    .project-title {
+      font-size: 1.13rem;
+      font-weight: 700;
+      margin: 0.6rem 0 0.2rem 0;
+      color: #426db0;
+      letter-spacing: 0.1px;
+      transition: color 0.18s;
+    }
+    .project-card:hover .project-title {
+      color: var(--accent);
+    }
+    .project-desc {
+      font-size: 1rem;
+      color: #666;
+      margin: 0.17rem 0 0 0;
+      opacity: 0.97;
+      min-height: 38px;
+    }
+    .project-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: 1.5rem;
+      padding: 0;
+      margin: 0;
+    }
+    .contact-section {
+      background: var(--white);
+      border-radius: 1.5rem;
+      box-shadow: 0 4px 24px rgba(50,70,130,0.07);
+      max-width: 470px;
+      margin: 2.5rem auto 2.5rem auto;
+      padding: 2.3rem 1.8rem 1.7rem 1.8rem;
+      text-align: center;
+    }
+    .contact-info {
+      font-size: 1.09rem;
+      margin-bottom: 1.5rem;
+      color: #31517c;
+      font-weight: 500;
+    }
+    .contact-form label {
+      display: block;
+      text-align: left;
+      margin-bottom: 0.4em;
+      font-size: 0.97rem;
+      color: #31517c;
+      font-weight: 500;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      font-family: inherit;
+      font-size: 1rem;
+      margin-bottom: 1.1em;
+      padding: 0.7em 0.8em;
+      border-radius: 16px;
+      border: 1.5px solid #c4d2e8;
+      background: #f8f8fc;
+      transition: border-color 0.14s;
+      resize: vertical;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #5180c2;
+      outline: none;
+    }
+    .contact-form button {
+      background: #5180c2;
+      color: #fff;
+      font-size: 1.11rem;
+      font-family: inherit;
+      border-radius: 16px;
+      border: none;
+      padding: 0.72em 2.2em;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-top: 0.25em;
+      cursor: pointer;
+      box-shadow: 0 1.5px 8px rgba(81,128,194,0.13);
+      transition: background 0.18s;
+    }
+    .contact-form button:hover {
+      background: var(--accent);
+    }
+    .form-message {
+      margin: 0.7em 0 0 0;
+      font-size: 1.03em;
+      font-weight: 600;
+    }
+    .form-error {
+      color: #e25d5d;
+    }
+    .form-success {
+      color: #3bc17f;
+    }
+    @media (max-width: 900px) {
+      .hero-center {
+        max-width: 98vw;
+      }
+      .profile-photo {
+        width: 140px;
+        height: 140px;
+      }
+      .hero-title {
+        font-size: 1.8rem;
+      }
+      .hero-intro {
+        font-size: 1.05rem;
+      }
+    }
+    @media (max-width: 600px) {
+      .projects-grid {
+        padding: 1rem 0.2rem 0 0.2rem;
+        gap: 1.3rem 0.5rem;
+      }
+      .profile-photo {
+        width: 100px;
+        height: 100px;
+      }
+      .hero-title {
+        font-size: 1.2rem;
+      }
+      .section-title {
+        font-size: 1.1rem;
+      }
+      .contact-section {
+        padding: 1.02rem 0.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <div class="hero-center">
+      <img src="profile.jpg" alt="Profile Photo" class="profile-photo" />
+      <div class="hero-title">BANDIT MIENMANY</div>
+      <div class="hero-intro">
+        Independent consultant specialized in Geospatial analysis, GIS, remote sensing, data storytelling, and sustainable development.<br>
+        Passionate about climate resilience, agriculture, environmental management, and health.
+      </div>
+    </div>
+  </div>
+  <div class="section-title">Projects & Experiments</div>
+  <div class="projects-section">
+    <div class="projects-grid">
+      <a class="project-link" href="https://bandit15.github.io/Deep-Learning-Satellite-Image-Segmentation/" target="_blank">
+        <div class="project-card">
+          <img src="1.png" alt="Deep Learning Satellite Image Segmentation" class="project-image" />
+          <div class="project-title">Deep Learning Satellite Image Segmentation</div>
+          <div class="project-desc">DL-based pixel-level segmentation of satellite images</div>
+        </div>
+      </a>
+      <a class="project-link" href="https://bandit15.github.io/Satellite-Image-Machine-Learning-Classification/" target="_blank">
+        <div class="project-card">
+          <img src="satellite-classification.png" alt="Satellite Image Machine Learning Classification" class="project-image" />
+          <div class="project-title">Satellite Image Machine Learning Classification</div>
+          <div class="project-desc">ML classification models for satellite imagery</div>
+        </div>
+      </a>
+      <a class="project-link" href="https://bandit15.github.io/Deep-Learning-for-Image-Classification/" target="_blank">
+        <div class="project-card">
+          <img src="dl-image-classification.png" alt="Deep Learning for Image Classification" class="project-image" />
+          <div class="project-title">Deep Learning for Image Classification</div>
+          <div class="project-desc">Image classification in remote sensing using deep learning</div>
+        </div>
+      </a>
+      <a class="project-link" href="https://github.com/Bandit15/Carbon-Emission-and-Health" target="_blank">
+        <div class="project-card">
+          <img src="carbon-health.png" alt="Analyze Carbon Emission and Health" class="project-image" />
+          <div class="project-title">Analyze Carbon Emission and Health</div>
+          <div class="project-desc">Data analysis on carbon emissions and health impacts</div>
+        </div>
+      </a>
+      <a class="project-link" href="https://github.com/Bandit15/Health-Machine-Learning-Analysis" target="_blank">
+        <div class="project-card">
+          <img src="health-ml.png" alt="Health Machine Learning Analysis" class="project-image" />
+          <div class="project-title">Health Machine Learning Analysis</div>
+          <div class="project-desc">ML analysis for health data and trends</div>
+        </div>
+      </a>
+      <a class="project-link" href="https://github.com/Bandit15/carbon-emission-ml-tutorial" target="_blank">
+        <div class="project-card">
+          <img src="carbon-ml.png" alt="Machine Learning for Carbon emission" class="project-image" />
+          <div class="project-title">Machine Learning for Carbon emission</div>
+          <div class="project-desc">Tutorial and experiments on carbon emission ML</div>
+        </div>
+      </a>
+      <a class="project-link" href="https://ee-banditmienmany.projects.earthengine.app/view/laos-forest-loss-monitoring" target="_blank">
+        <div class="project-card">
+          <img src="laos-forest-loss.png" alt="Laos Forest Loss Monitoring" class="project-image" />
+          <div class="project-title">Laos Forest Loss Monitoring (GEE App)</div>
+          <div class="project-desc">Google Earth Engine app for forest loss monitoring</div>
+        </div>
+      </a>
+      <a class="project-link" href="https://ee-banditmienmany.projects.earthengine.app/view/builtup-and-population-growth" target="_blank">
+        <div class="project-card">
+          <img src="builtup-population.png" alt="Built-up and Population Growth" class="project-image" />
+          <div class="project-title">Built-up and Population Growth (GEE App)</div>
+          <div class="project-desc">Population and built-up area analytics with GEE</div>
+        </div>
+      </a>
+      <a class="project-link" href="https://ee-banditmienmany.projects.earthengine.app/view/firms-fire-monitoring" target="_blank">
+        <div class="project-card">
+          <img src="firms-fire.png" alt="FIRMS Fire Monitoring" class="project-image" />
+          <div class="project-title">FIRMS Fire Monitoring (GEE App)</div>
+          <div class="project-desc">Global fire detection and monitoring visualization</div>
+        </div>
+      </a>
+      <a class="project-link" href="https://ee-banditmienmany.projects.earthengine.app/view/laos-climate-monitoring-2024" target="_blank">
+        <div class="project-card">
+          <img src="climate-monitoring.png" alt="Laos Climate Monitoring 2024" class="project-image" />
+          <div class="project-title">Laos Climate Monitoring 2024 (GEE App)</div>
+          <div class="project-desc">Climate data analysis and visualization for Laos</div>
+        </div>
+      </a>
+      <a class="project-link" href="https://ee-banditmienmany.projects.earthengine.app/view/severe-flood-in-laos" target="_blank">
+        <div class="project-card">
+          <img src="severe-flood.png" alt="Severe Flood in Laos" class="project-image" />
+          <div class="project-title">Severe Flood in Laos (GEE App)</div>
+          <div class="project-desc">Flood event monitoring and mapping (GEE)</div>
+        </div>
+      </a>
+      <a class="project-link" href="https://bandit15.github.io/COVID-19-Tracker/" target="_blank">
+        <div class="project-card">
+          <img src="covid.png" alt="COVID-19 Tracker" class="project-image" />
+          <div class="project-title">COVID-19 Tracker</div>
+          <div class="project-desc">Global COVID-19 interactive map and data visualization</div>
+        </div>
+      </a>
+      <a class="project-link" href="https://bandit15.github.io/Transport/" target="_blank">
+        <div class="project-card">
+          <img src="london-tfl.png" alt="London Subway Map" class="project-image" />
+          <div class="project-title">London Subway Map</div>
+          <div class="project-desc">Subway network and transport visualization for London</div>
+        </div>
+      </a>
+      <a class="project-link" href="https://bandit15.github.io/Weather/" target="_blank">
+        <div class="project-card">
+          <img src="weather-map.png" alt="Weather Map" class="project-image" />
+          <div class="project-title">Weather Map</div>
+          <div class="project-desc">Weather data, maps, and analytics</div>
+        </div>
+      </a>
+      <a class="project-link" href="https://bandit15.github.io/Nitrogen-Emission/" target="_blank">
+        <div class="project-card">
+          <img src="nitrogen.png" alt="Nitrogen Emission Compare" class="project-image" />
+          <div class="project-title">Nitrogen Emission Compare</div>
+          <div class="project-desc">Comparative analysis of nitrogen emissions</div>
+        </div>
+      </a>
+      <a class="project-link" href="https://bandit15.github.io/cassava/" target="_blank">
+        <div class="project-card">
+          <img src="cassava.png" alt="Cassava Production of the Mainland of Southeast Asia" class="project-image" />
+          <div class="project-title">Cassava Production of the Mainland of Southeast Asia</div>
+          <div class="project-desc">Cassava production mapping and trends across SE Asia</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="section-title">Contact</div>
+  <div class="contact-section">
+    <div class="contact-info">
+      <div>Email: <a href="mailto:banditmienmany@gmail.com">banditmienmany@gmail.com</a></div>
+      <div>Tel: <a href="tel:+8562056420305">+85620 56420305</a></div>
+    </div>
+    <form class="contact-form" id="contactForm" autocomplete="off" onsubmit="return handleForm(event)">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required placeholder="Your name">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required placeholder="you@email.com">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="4" required placeholder="Your message"></textarea>
+      <button type="submit">Send Message</button>
+      <div id="formMessage" class="form-message" aria-live="polite"></div>
+    </form>
+  </div>
+  <script>
+    // Simple client-side form handler (no backend, just demo/UX)
+    function handleForm(e) {
+      e.preventDefault();
+      var formMessage = document.getElementById('formMessage');
+      formMessage.textContent = '';
+      var name = document.getElementById('name').value.trim();
+      var email = document.getElementById('email').value.trim();
+      var message = document.getElementById('message').value.trim();
+      if(!name || !email || !message) {
+        formMessage.textContent = 'Please fill in all fields.';
+        formMessage.className = 'form-message form-error';
+        return false;
+      }
+      // Just show a success message (would be sent to backend in real use)
+      formMessage.textContent = 'Thank you for contacting me, ' + name + '! (Form demo only)';
+      formMessage.className = 'form-message form-success';
+      document.getElementById('contactForm').reset();
+      return false;
+    }
+  </script>
+</body>
+</html>
